@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent { label 'jdk-11-mvn' }
     stages{
         stage('vcs'){
             steps{
@@ -10,7 +10,6 @@ pipeline{
         
         stage('build'){
             steps{
-                agent { label 'jdk-11-mvn' }
                 sh 'mvn package'
                  }
         }
